@@ -1,0 +1,70 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    char* time;
+    char H[2],M[2],S[2],C[2];
+    int hr,min,sec,i,rem;
+    char* Ctime;
+    
+    time = (char *)malloc(10240 * sizeof(char));
+    Ctime = (char *)malloc(10240 * sizeof(char));
+    scanf("%s",time);
+    
+    printf("time = %s\n",time);
+    
+    strncpy(H,time,2);
+    H[2] = '\0';
+    strncpy(M,time+3,2);
+    M[2] = '\0';  
+    strncpy(S,time+6,2);
+    S[2] = '\0';      
+    strncpy(C,time+8,2);
+    C[2] = '\0';
+    
+  
+    if ((strcmp(C,"PM") == 0) || (strcmp(C,"AM") == 0))
+    {
+      printf("12 Hr format \n");
+      if (strcmp(C,"PM") == 0)
+      {
+               hr = atoi(H);
+               hr += 12;
+               memset(H,'\0',2);
+               memset(Ctime,'\0',20);
+               for(i=0;i<2;i++)
+               {
+                       rem = hr%10;
+                       hr=hr/10;
+                       H[2 - (i+1)] = rem + '0';               
+                       printf("H[i] = %c", H[i]);
+               }
+               H[2] = '\0';
+      }
+      else
+      {
+               hr = atoi(H);
+             
+               if ((hr == 12) && (strcmp(C,"AM") == 0))
+               {
+                      memset(H,'\0',2); 
+                      strncpy(H,"00",2);
+               }
+      }
+    }
+    
+//    sprintf(Ctime,"%s:%s:%s",H,M,S);
+        strcpy(Ctime,H) ;    
+	strncat(Ctime,":",1);
+	strncat(Ctime,M,2);
+	strncat(Ctime,":",1);
+	strncat(Ctime,S,2);
+    printf("C time : %s",Ctime);
+            
+    return 0;
+}
