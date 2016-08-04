@@ -135,6 +135,7 @@ Comparing flock() & fcntl():
 	 in flock(),
 	 		Lock can be appiled only for whole file.
 
+
  		
 
 										
