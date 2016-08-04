@@ -134,6 +134,7 @@ Comparing flock() & fcntl():
 			we can place one or more locks on any part of the file ranging from single byte to entire file.
 	 in flock(),
 	 		Lock can be appiled only for whole file.
+
  		
 
 										
