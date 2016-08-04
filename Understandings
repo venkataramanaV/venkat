@@ -24,6 +24,23 @@ SYMBOLIC LINK
     
 3.  whether after unlink linked file the main source will deleted?
     No, only the linked file will be removed.
+
+Difference  between "Hard link"/"Soft link"
+
+  What are Hard Links
+    1. Hard Links have same inodes number.
+    2. ls -l command shows all the links with the link column shows number of links.
+    3. Links have actual file contents
+    4. Removing any link, just reduces the link count, but doesn't affect other links.
+    5. You cannot create a hard link for a directory.
+    6 If original file is removed then the link will still show you the content of the file.
+
+  What are Soft Links
+    1. Soft Links have different inodes numbers.
+    2. ls -l command shows all links with second column value 1 and the link points to original file.
+    3. Soft Link contains the path for original file and not the contents.
+    4. Removing soft link doesn't affect anything but removing original file, the link becomes "dangling" link which points to nonexistent file.
+    5. A soft link can link to a directory.
     
 ****************************
 Static & Shared Libraries
