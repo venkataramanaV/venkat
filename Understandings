@@ -1,3 +1,9 @@
+C Basics
+*********
+TYPE-SPCIFIER: data types
+TYPE-QUALIFIER: const, volatile
+STORAGE-CLASS-SPECIFIER: auto,static,int,register.
+
 **********************
 Process memory layout
 **********************
