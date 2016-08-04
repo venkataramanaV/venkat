@@ -26,7 +26,33 @@ SYMBOLIC LINK
     No, only the linked file will be removed.
     
 ****************************
-SYMBOLIC LINK
+Static & Shared Libraries
 ****************************    
+STATIC LIBRARY:
+    A static library is essentially a structured bundle of compiled object modules. 
+To use functions from a static library, we specify that library in the link command used to build a program. 
+After resolving the various function references from the main program to the modules in the static library, the linker
+extracts copies of the required object modules from the library and copies these into the resulting executable file. 
+We say that such a program is statically linked.
     
+    Disadvantage:
+        1. The fact that each statically linked program includes its own copy of the object modules.
+        2. The duplication of object code in different executable files wastes disk space.
+        3. Waste of memory occurs when statically linked programs using the same library function which
+           are executing at the same time; 
+           each program requires its own copy of the function to reside in memory
+        4. If user performed some modification on library function, then recompiled function of static library has to be 
+           relinked with all the application which uses the static library.
+
+SHARED LIBRARY:
+    If a program is linked against a shared library:
+    
+    1. Instead of copying object modules from the library into the executable, 
+       the linker just writes a record into the executable which indicates at run time to use the shared library.
+    2. When the executable is loaded into memory at run time:
+	   The dynamic linker ensures that the shared libraries is required for the executable.
+       Performs run-time linking to resolve the function calls initiated from executable which is defined in the 
+       shared library.
+    3. At run time, only a single copy of shared library will be available in the memory
+       and other running programs can use that copy of memory.
     
