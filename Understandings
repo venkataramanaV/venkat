@@ -56,3 +56,23 @@ SHARED LIBRARY:
     3. At run time, only a single copy of shared library will be available in the memory
        and other running programs can use that copy of memory.
     
+************************************************
+Inter Process Communication
+************************************************
+signals		: which are used to indicate that an event has occurred;
+
+pipes		: which can be used to transfer data between processes;
+
+sockets		: which can be used to transfer data from one process to another, either
+		  on the same host computer or on different hosts connected by a network;
+
+file locking	: which allows a process to lock regions of a file in order to prevent
+		  other processes from reading or updating the file contents;
+
+message queues	: which are used to exchange messages (packets of data) between processes;
+
+semaphores	: which are used to synchronize the actions of processes; 
+
+shared memory	: which allows two or more processes to share a piece of memory.
+		  When one process changes the contents of the shared memory, all of the other
+		  processes can immediately see the changes.
