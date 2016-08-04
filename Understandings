@@ -1,0 +1,32 @@
+**********************
+Process memory layout
+**********************
+A process is logically divided into the following parts, known as segments:
+􀁺 Text: the instructions of the program.
+􀁺 Data: the static variables used by the program.
+􀁺 Heap: an area from which programs can dynamically allocate extra memory.
+􀁺 Stack: a piece of memory that grows and shrinks as functions are called and
+return and that is used to allocate storage for local variables and function call
+linkage information.
+
+****************************
+SYMBOLIC LINK
+****************************
+1.  Creating a Symbolic Link
+    ln -s <src PATH> <Link PATH>
+    
+    ln -s sedtest.txt /home/venkat/venkat/sedtest.txt
+
+2.  Unlink the Symbolic Link
+    rm <link name>
+    or
+    unlink <linked file name>
+    
+3.  whether after unlink linked file the main source will deleted?
+    No, only the linked file will be removed.
+    
+****************************
+SYMBOLIC LINK
+****************************    
+    
+    
