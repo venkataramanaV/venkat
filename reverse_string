@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+#include <malloc.h>
+
+char *strirev(char str[]);
+int main()
+{
+       char str[10];
+       char *reverse;
+       int len;
+       reverse = malloc(sizeof(10));
+       //memset(str,'\0',10);
+       printf("get the string \n");
+       scanf("%s",str);
+       len = strlen(str);
+       printf("len the string: %d \n",len);
+       reverse = strirev(str);
+       reverse[len+1] = '\0';
+       len = strlen(reverse);
+       printf("reversed string: %s \n",reverse);
+       printf("len the reversed string: %d \n",len);       
+       return 0;
+}
+
+char *strirev(char str[])
+{
+       static int i = 0;
+       static char rev_str[10];
+       printf("%s \n", str);
+       if(*str)
+       {
+               strirev(str+1);
+               rev_str[i++] = *str;
+       }
+       printf("strirev: %s \n", rev_str);
+       return rev_str;
+}
