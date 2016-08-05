@@ -1,0 +1,45 @@
+Find middle node:
+    /* Function to get the middle of the linked list*/
+    void printMiddle(struct node *head)
+    {
+        struct node *slow_ptr = head;
+        struct node *fast_ptr = head;
+     
+        if (head!=NULL)
+        {
+            while (fast_ptr != NULL && fast_ptr->next != NULL)
+            {
+                fast_ptr = fast_ptr->next->next;
+                slow_ptr = slow_ptr->next;
+            }
+            printf("The middle element is [%d]\n\n", slow_ptr->data);
+        }
+    }
+
+Reverse Linked List:
+    struct node *reverse (struct node *head, int k)
+    {
+        struct node* current = head;
+        struct node* next = NULL;
+        struct node* prev = NULL;
+        int count = 0;   
+         
+        /*reverse first k nodes of the linked list */
+        while (current != NULL && count < k)
+        {
+            next  = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+            count++;
+        }
+         
+        /* next is now a pointer to (k+1)th node 
+           Recursively call for the list starting from current.
+           And make rest of the list as next of first node */
+        if (next !=  NULL)
+           head->next = reverse(next, k); 
+     
+        /* prev is new head of the input list */
+        return prev;
+    }
