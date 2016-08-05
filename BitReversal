@@ -1,0 +1,32 @@
+******************************
+Reverse a bit for the given no
+if a = 7
+the bit value of 7 = 0000 0111
+revesre the bits as = 1110 0000
+*******************************
+#include<stdio.h>
+
+int bitreverse(int num);
+
+int main()
+{
+  int a,reverse_val;
+  scanf("%d",a);
+  reverse_val = bitreverse(a);
+  printf("%u",reverse_val);
+  return 0;
+}
+
+int bitreverse(int num)
+{
+  int temp=0,reverse=0,i;
+  int total_bits = 8;
+  
+  for(i=0; i<total_bits; i++)
+  {
+    temp = (num & (1<<i));
+    if(temp)
+      reverse |= (1<<(total_bits - 1 -i));
+  }
+  return reverse;
+}
