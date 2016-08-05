@@ -116,3 +116,40 @@
      1. Function pointer can be passes as an argument and also can be returned from function. Thus code redundancy 
         can be avoided
      2. two or more functions having same argument type can be assigned to the function pointer.
+
+16. What is volotile memory & how it is used in C?
+    Volatile memory is a type of storage whose contents are erased when the system's power is turned off or interrupted. 
+    For example, RAM is volatile, meaning users will lose a document if they do not save their work to a non-volatile 
+    classification of memory, such as a hard drive, before shutting down the computer.
+    
+    Volatile tells the compiler not to optimize anything that has to do with the volatile variable.
+        Let's say you have a little piece of hardware that is mapped into RAM somewhere and 
+        that has two addresses: a command port and a data port:
+        
+        typedef struct
+        {
+          int data;
+          int isbusy;
+        } Hardware;
+        
+        void SndEvent (Hardware *gadget, int data)
+        {
+          // wait while the gadget is busy:
+          while (gadget->isbusy)
+          {
+            // do nothing here.
+          }
+          gadget->data = data;
+          // writing the command starts the action:
+        }
+        
+        Looks easy, but it can fail because the compiler is free to change the order in which data and commands are written. 
+        This would cause our little gadget to issue commands with the previous data-value. 
+        Also take a look at the wait while busy loop. That one will be optimized out. 
+        The compiler will try to be clever, read the value of isbusy just once and then go into an infinite loop. 
+        That's not what you want.
+        
+        The way to get around this is to declare the pointer gadget as volatile. 
+        This way the compiler is forced to do what you wrote. 
+        It can't remove the memory assignments, it can't cache variables in registers and 
+        it can't change the order of assignments either:
