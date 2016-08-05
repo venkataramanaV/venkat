@@ -1,0 +1,118 @@
+1. TYPES OF STORAGE CLASS SPECIFIERS IN C:
+    auto
+    extern
+    static
+    register
+    Typedef
+
+2. TYPES OF C TYPE QUALIFIERS:
+    const
+    volatile
+    
+3. TYPES OF MODIFIERS:
+    long
+    unsigned
+    short
+    signed
+    double
+
+4. DERIVED DATA TYPE IN C:
+    Array, 
+    pointer, 
+    structure and
+    union
+    
+5. USER DEFINED DATA TYPES:
+    typedef
+    structure
+    union
+    enum
+    
+6. Difference between malloc & calloc
+    malloc:
+      1. allocates memory interms of byte
+      2. malloc(10 * sizef(datatype))
+    calloc:
+      1. allocates memory for n objects of particular size
+      2. calloc(10,sizeof(datatype))
+      
+7. Function definition of malloc
+    |**************bufsize********************|
+    *******************************************
+    *               *                         *
+    *******************************************
+    |               |
+    v               v
+    buf            ptr  
+    void *malloc(int n)
+    {
+      if (buf+bufsize-ptr > n)
+      {
+        ptr += n;
+        return ptr-n;
+      }
+      else
+        return 0;    
+    }
+    
+8. Useage of free()
+    1. Memory allocation of variables can be freed
+    2. free() can be used to free the variables for which memory allocated by malloc & calloc
+    3. free() has to be used for only one time, if used more than once for same variable it tries to deallocation 
+       memory for the variable where memory is not allocated and pointer variable becomes dangling pointer.
+
+9. Difference between structure & array
+    structure:
+      1. Contains element of different data types
+      2. elements are accessed using "." & "->" operator
+      3. structure can be assigned to pointer
+      4. user defined data type
+    array:
+      1. contains element of same data type
+      2. elements are accessed using index
+      3. array cannot be assigned to pointer
+      4. derived data type
+
+10. Difference between structure & Union
+    Structure:
+      1. In structure each member get seperate space for memory.
+      2. Total memory required to store a structure is equal to sum of the size of all members of the structure.
+      3. any structure members can be accessed in sequence and fetch exact value.
+    Union:
+      1. In union, the total memory space is allocated is equal to the member of the largest size.
+         All other member shares the same memory space.
+      2. Total memory to store the union is equal to the largest size of the member of union.
+      3. we can access any members of union, but the last member updated in the union will be overwritten on the earlier
+         value because it uses same memory space.
+
+11. Difference between Extern & Global
+    Extern:
+      If the variable is declared with the specifier keyword extern outside the function, then the variable can be
+      accessed across the modules.
+    Global:
+      If the variable declared outside the function without any specifiers then the variable is called globally declared
+      and can be accessed within the particular file only.
+      
+12. Difference between macro and function
+    Macro:
+      1. it expands inline at the time of compilation
+      2. Always result will not be true since it considers double & int as same
+      3. Execution time will be less
+    Function:
+      1. It parameter are placed at stack pointer and then it is processed
+      2. the result is accurate
+      3. Execution time will be more
+
+13. Why segmentation faults occures?
+     1. Dangling pointer  : removing memory for the pointer twice.
+     2. Exceeding boundary of array
+     3. overflowing of heap
+     4. using pointer without allocating memory
+     
+14. Why implicit declaration warning occures?
+    The function is not declared before calling.
+    
+15. Advantages of function pointer
+     1. Function pointer can be passes as an argument and also can be returned from function. Thus code redundancy 
+        can be avoided
+     2. two or more functions having same argument type can be assigned to the function pointer.
