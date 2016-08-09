@@ -67,6 +67,15 @@
     set var b=20;
     p b
       o/p : 20
+      
+14. How to back trace in GDB
+    1. create a debugging load
+    2. set the break point
+    3. run the executable
+    4. use command
+       bt 1
+       bt full
+       
 
 
 
