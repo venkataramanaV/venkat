@@ -1,3 +1,5 @@
+For More information reffer the below link:
+[http://www.delorie.com/gnu/docs/gdb/gdb_toc.html#SEC_Contents]
 1. Create Debug file
    gcc -g src.c -o src
    
