@@ -62,6 +62,24 @@
         2. then copy the contents of first 10 locations from "ptr" to the new place
         3. then deallocates the existing memory and returns the new pointer to the memory
         
+        ****************************************************************************
+        *           * ----------- *          *
+        ****************************************************************************
+        1000      1010  mem for   2000        n           n+10           n+20
+        ^           ^    other            new memory allocated for increased size
+        |           |   variable          new address location "n" till n+20 
+        ptr       ptr + 10                the contents of 1000 - 1010 copied to n - n+10 
+        
+        ****************************************************************************
+        *           * ----------- *          *                            *
+        ****************************************************************************
+        1000      1010  mem for   2000        n           n+10           n+20
+                                              ^           ^               ^
+        <--mem freed-->                       |           |               |
+                                              ptr       ptr + 10         ptr+20 
+                                              
+                                             new address n will be returned to *ptr 
+        
 7. Function definition of malloc
     |**************bufsize********************|
     *******************************************
