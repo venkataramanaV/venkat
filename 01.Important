@@ -28,14 +28,40 @@
     union
     enum
     
-6. Difference between malloc & calloc
+6. Difference between malloc , calloc & realloc
     malloc:
+        void *malloc(size_t size);
+        
       1. allocates memory interms of byte
-      2. malloc(10 * sizef(datatype))
+      2. <datatype> *a = (<datatype>*)malloc(10 * sizef(datatype))
+      3. if system is not able allocate memory it returns NULL
     calloc:
+        void* calloc( size_t num, size_t size );
+        
       1. allocates memory for n objects of particular size
+      2. The major difference with malloc is the memory initialized with 0
       2. calloc(10,sizeof(datatype))
       
+    realloc:
+        void *realloc(void *ptr, size_t size);
+        
+        Suppose a pointer (say ptr) is pointing to a memory of 10 int on heap allocated using malloc as below.
+        
+        **************************************
+        *           * ----------- *          *
+        **************************************
+        1000      1010  mem for   2000        n
+        ^           ^    other 
+        |           |   variable
+        ptr       ptr + 10
+        
+        To increase the size from 10 to 20 bytes without loosing the content of already allocated memory in that
+        case use the functopn realloc().
+        
+        1. in this case realloc will allocate memory for 20 integers somewhere else 
+        2. then copy the contents of first 10 locations from "ptr" to the new place
+        3. then deallocates the existing memory and returns the new pointer to the memory
+        
 7. Function definition of malloc
     |**************bufsize********************|
     *******************************************
