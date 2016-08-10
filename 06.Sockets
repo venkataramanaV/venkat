@@ -1,6 +1,4 @@
-SYSTEM Call function for SOCKETS:
-  1. 
-  
+
 Different Socket domines and their application
 
 ********************************************************************************************************************
@@ -15,6 +13,20 @@ Different Socket domines and their application
 *           *                         *                               *                        *                   *
 ********************************************************************************************************************
 *           *                         * on hosts connected            * 128-bit IPv6 address + *                   *
-* AF-INET6  * via IPv6                * via an IPv6 network           * 16-bit port number     * sockaddr_in       *
+* AF-INET6  * via IPv6                * via an IPv6 network           * 16-bit port number     * sockaddr_in6      *
 *           *                         *                               *                        *                   *
 ********************************************************************************************************************
+
+Socket SYSTEM Calls:
+  1. socket :
+  2. bind   :
+  3. listen :
+  4. accept :
+  5. connect:
+    After connecting other system calls can be used
+    1.  read()
+    2.  write()
+    3.  recv()
+    4.  send()
+    5.  sendto()
+    6.  recvfrom()
