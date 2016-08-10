@@ -1,0 +1,20 @@
+SYSTEM Call function for SOCKETS:
+  1. 
+  
+Different Socket domines and their application
+
+********************************************************************************************************************
+*   Domain  * Communication performed * Communication b/w applications* Address format         * Address structure *
+********************************************************************************************************************
+*           *                         *                               *                        *                   *
+* AF-UNIX   * within kernel           * on same host                  * pathname               * sockaddr_un       *
+*           *                         *                               *                        *                   *
+********************************************************************************************************************
+*           *                         * on hosts connected            * 32-bit IPv4 address +  *                   *                   *
+* AF-INET   * via IPv4                * via an IPv4 network           * 16-bit port number     * sockaddr_in       *
+*           *                         *                               *                        *                   *
+********************************************************************************************************************
+*           *                         * on hosts connected            * 128-bit IPv6 address + *                   *                   *
+* AF-INET6  * via IPv6                * via an IPv6 network           * 16-bit port number     * sockaddr_in       *
+*           *                         *                               *                        *                   *
+********************************************************************************************************************
