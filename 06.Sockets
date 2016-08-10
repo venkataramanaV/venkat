@@ -17,12 +17,17 @@ Different Socket domines and their application
 *           *                         *                               *                        *                   *
 ********************************************************************************************************************
 
+Socket Types:
+1. SOCK_STREAM  :
+2. SOCK_DGRAM   :
+
 Socket SYSTEM Calls:
-  1. socket :
-  2. bind   :
-  3. listen :
-  4. accept :
-  5. connect:
+  1. socket()  :  int socket(int domain, int type, int protocol);
+  2. bind()    :  int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+  3. listen()  :  int listen(int sockfd, int backlog);
+  4. accept()  :  int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
+  5. connect() :  int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+  
     After connecting other system calls can be used
     1.  read()
     2.  write()
