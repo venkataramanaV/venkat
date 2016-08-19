@@ -1,0 +1,42 @@
+********************************************************************
+Find the No of 0's & 1's from from given char array.
+consider every byte of char array to find the 0's & 1's
+*******************************************************************
+#include<stdio.h>
+
+void find01(char *x,int *ones,int *zeros);
+
+int main()
+{
+       char x[]={0x7f,0x6a,0x24,0x5a,'\0'};
+       int ones,zeros;
+       //ones=NULL;
+       //zeros=NULL;
+       find01(x,&ones,&zeros);
+       printf("no of zeros : %d \n", zeros);
+       printf("no of ones : %d \n", ones);       
+}
+
+void find01(char *x,int *ones,int *zeros)
+{
+       int i,n,c=1,o=0,z=0;
+       while (*x)
+       {
+               n = *x;
+               for(i=0;i<8;i++)
+               {
+                       if(n & (c<<i))
+                       {
+                               o+=1;
+                       }
+                       else
+                       {
+                               z+=1;
+                       }
+               }
+               x=x+1;
+       }
+       *ones = o;
+       *zeros = z;
+     
+}
