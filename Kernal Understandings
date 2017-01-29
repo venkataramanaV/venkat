@@ -44,5 +44,8 @@
         Here no parallel operations of threads will occur.
         
     IF CORE & CPU > 1 (system with multi cpu & core)
+        When CORE = CPU = 2, there will be two threads runs parallely.
+             CORE = CPU = 4, there will be four threads runs parallely.
+        when number of CORE & CPU increases, the parallel processing also increases which makes the system to perform faster.
         
    
