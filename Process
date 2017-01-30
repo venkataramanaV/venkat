@@ -1,0 +1,67 @@
+***********************
+*How to create process*
+***********************
+1. The process are created using fork().
+2. only a process can create another process.
+3. Generally "INIT" & "[kthread]"has the process ID 1 & 2 respectively and parent process Id as 0. These two process created by
+   kernal at boot time.
+   INIT:
+      Which is responsible for starting & shutting down the machine.
+   Kthread:
+      In modern system some processes execute the kernal code and managed on user space.
+      Theses processes are "spawnned" by kthread (which is INIT for kernal threads). 
+      All kernal processes are denotes with [] brackets, this can be viewed using process listing "ps".      
+4. process having PID = 0 is swapper, which is responsible for pagging and part of kernal operation.
+5. SPAWNNING:
+      Performs both fork() & exec() is called spawnning.
+      
+      
+*********************************************************************************
+*                           BASIC program using fork                            *
+*********************************************************************************
+#include<stdio.h>
+#include<unistd.h>
+
+int main()
+{
+	int RC;
+	printf("starting the parent process\n");
+  
+  /*getpid : fetches the process id*/
+  /*getppid : fetches the parent process id*/
+  
+	printf("parent pid = %d\n", getpid());
+	RC = fork();
+  
+  /* If child is created successfully fork returns a value 0 */
+  /* with the return value parent & child can be distinguished */
+  
+	if (RC == 0)
+  {
+    printf("entered into the child process: %d\n",getpid());
+  }
+	else
+		printf("re-entered to parent pid: %d\n",getpid());
+}
+
+*********************************************************************************
+*                           Explanation of above code                           *
+*********************************************************************************
+
+Parent Process                                      Child process
+****************************                        ****************************
+|........                  | it creates the process |........                  |
+|........                  | same as it is with     |........                  |
+|........                  | PC, STACK segment,     |........                  |
+|fork() /*fork initiated*/ | text,heap, data as it  |fork()                    | instruction starts from next line
+|........                  | is.                    |........                  | child start executing from this line  
+|........                  | when fork is executes  |........                  |
+|........                  | child will be created  |........                  |
+**************************** with next instruction  ****************************
+                             of code.
+                             
+Note: 
+1. Address of Parent & Child process will be different
+
+                             
+                             
