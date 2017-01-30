@@ -62,5 +62,54 @@ Parent Process                                      Child process
 Note: 
 1. Address of Parent & Child process will be different
 
+*********************************************************************************
+*           What happens when exec is used in child                             *
+*********************************************************************************
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/wait.h>
+
+int main()
+{
+	int RC,a=10,b,c;
+	int status = 0;
+	printf("I am in the parent PID = %d\n",getpid());
+	RC = fork();
+	if (RC == 0) {
+		printf("i am the child PID = %d\n",getpid());
+		c = 5 * 2;
+		printf("c child = %d\n",c);
+		
+		/* the child process calling exec */
+		/* if exec executes sucessfully the control wont be returned back to child */
+		
+		execl("/bin/ls", "-l","-h",NULL);
+		
+		/* if exec command fails control returns to child */
+		
+		printf("after exec in child\n");
+	} else {
+		//wait(&status);
+		printf("I am in the parent after fork PID = %d\n",getpid());
+		printf("the value of c in parent = %d\n",c);
+		b = a + c;
+		printf("the value of b in parent = %d\n",b);
+		wait(&status);
+	}
+}                             
                              
-                             
+OUTPUT:
+I am in the parent PID = 3255
+I am in the parent after fork PID = 3255
+the value of c in parent = 169703760
+the value of b in parent = 169703770
+i am the child PID = 3256
+c child = 10
+
+/*exec command executed sucessfully n printed the file listing*/
+
+arr_sum.c    filemap.c	 fork_test1.c  fork_test.c     int2str.c       lsd_cmd.c	sparse_array.c	  triplet.c
+cre_write.c  fork_test	 fork_test2    frac.c	       leftrotation.c  mag_diff.c	star.c
+filemap1.c   fork_test1  fork_test2.c  hourglasssum.c  ls_cmd.c        reverse_array.c	timeconversion.c
+
+/* Note: print statement "after exec in child" not printed */
