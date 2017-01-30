@@ -36,7 +36,7 @@ int main()
   /* If child is created successfully fork returns a value 0 */
   /* with the return value parent & child can be distinguished */
   
-	if (RC == 0)
+  if (RC == 0)
   {
     printf("entered into the child process: %d\n",getpid());
   }
