@@ -1,0 +1,35 @@
+1. I have created the program using fork as shown below
+
+*****************************************************************************
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/wait.h>
+
+int main()
+{
+	int RC,a=10,b,c;
+	int status = 0;
+	printf("I am in the parent PID = %d\n",getpid());
+	RC = fork();
+	if (RC == 0) {
+		printf("i am the child PID = %d\n",getpid());
+		c = 5 * 2;
+		printf("c child = %d\n",c);
+	} else {
+		//wait(&status);
+		printf("I am in the parent after fork PID = %d\n",getpid());
+		printf("the value of c in parent = %d\n",c);
+		b = a + c;
+		printf("the value of b in parent = %d\n",b);
+		wait(&status);
+	}
+}
+*****************************************************************************
+output:
+
+I am in the parent PID = 3195
+I am in the parent after fork PID = 3195
+the value of c in parent = -1751129408   /* the changes made in "child" is not found in "parent" */
+the value of b in parent = -1751129398
+i am the child PID = 3196
+c child = 10
