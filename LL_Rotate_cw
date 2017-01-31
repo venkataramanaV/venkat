@@ -1,0 +1,82 @@
+#include<stdio.h>
+#include<malloc.h>
+
+struct node
+{
+	int data;
+	struct node *next;
+} *head,*temp, *new, *temp, *prev;
+
+void create_list(int);
+void print_list();
+void rotate_list_cw(int);
+
+int main()
+{
+	create_list(5);
+	print_list();
+	rotate_list_cw(2);
+}
+
+void create_list(int n)
+{
+	int i;
+	head = (struct node*)malloc(sizeof(struct node));
+	head = NULL;
+	temp = (struct node*)malloc(sizeof (struct node));
+
+	for(i=0; i<n; i++)
+	{
+		new = (struct node*)malloc(sizeof(struct node));
+		new->data = i;
+		new->next = NULL;
+
+		if(head == NULL)
+			head = new;
+		else if(head->next == NULL)
+			head->next = new;
+		else
+		{
+			temp = head;
+			while(temp->next != NULL)
+			{
+				temp = temp->next;
+			}
+			temp->next = new;
+		}
+
+	}	
+}
+
+void print_list()
+{
+	temp = head;
+	while(temp->next != NULL)
+	{
+		printf("%d->",temp->data);
+		temp = temp->next;
+	}
+	printf("%d\n",temp->data);
+
+	
+}
+
+void rotate_list_cw(int n)
+{
+	int i;
+	for (i = 1 ; i<=n ;i++)	
+	{
+		temp = head;
+		while(temp->next != NULL)
+		{
+			prev = temp;
+			temp = temp->next;
+		}
+
+		temp->next = head;
+		prev->next = NULL;
+		head = temp;
+		print_list();
+	}
+	
+}
