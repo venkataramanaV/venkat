@@ -1,0 +1,139 @@
+#include<stdio.h>
+#include<malloc.h>
+
+/*strcuture names are declared in global so no need to pass as call by refference*/
+
+struct node 
+{
+	int data;
+	struct node *next;
+}*head=NULL, *new, *temp, *del_node; 
+
+void create_list(int);
+void print_list();
+void insert_node(int,int);
+void delete_node(int);
+
+int main()
+{
+  /*No of nodes to be created in the list is passes*/
+  /*Here i have passes hard coaded, the value also can be fetched dynamically using scanf*/
+	create_list(5);
+  print_list();
+  
+  /*first parameter, the value for the new node*/
+  /*second parameter, the position of new node to be inserted*/
+	insert_node(2,3);
+	print_list();
+  
+  /*The position of the node to be deleted*/
+	delete_node(3);
+	print_list();
+}
+
+void create_list(int n)
+{
+	int i;
+
+	head = (struct node*)malloc(sizeof (struct node));
+	head = NULL;
+	temp = (struct node*)malloc(sizeof (struct node));
+	for(i = 1; i <= n ; i++)
+	{
+		new=(struct node*)malloc(sizeof (struct node));
+		new->data = i;
+		new->next = NULL;
+		
+		if(head == NULL)
+		{
+			printf("creating head node : %d\n",new->data);
+			head = new;
+		}
+		else if(head->next == NULL)
+		{
+			printf("creating head->next node : %d\n",new->data);
+			head->next = new;
+		}
+		else
+		{
+			temp = head;
+			while(temp->next != NULL)
+			{
+				temp = temp->next;
+			}
+			temp->next = new;			
+		}
+		
+	}
+	
+}
+
+void print_list()
+{
+	temp = head;
+	while(temp->next != NULL)
+	{
+		printf("%d -> ", temp->data);
+		temp = temp->next;
+	}
+	printf("%d\n", temp->data);
+}
+
+void insert_node(int val, int pos)
+{
+  /*Existing LIST*/
+  /* 1 -> 2 -> 3 -> 4 -> 5 */
+  /* insert new node with value 2 after the 3rd node */
+	int i = 1;
+	temp = head;
+	new = (struct node*)malloc(sizeof(struct node));
+	new->data = val;
+	new->next = NULL;
+
+  /*traverse till 3rd node*/
+	while(i != pos)	
+	{
+		temp = temp->next;
+		i++;
+	}
+  
+  /*new node = [2 | NULL]*/
+  /*currently temp is  .....[3rd node | next] -> [4th node | next]....*/
+  /*[new | next] -> [4th node | next]....*/
+  
+	new->next = temp->next;
+  
+  /*.....[3rd node | next] -> [new node | next] -> [4th node | next]....*/
+  
+	temp->next = new;
+}
+
+void delete_node(int pos)
+{
+	int i = 1;
+	temp = head;
+	del_node = (struct node*)malloc(sizeof(struct node));
+  
+  /*Existing List*/
+  /* 1 -> 2 -> 3 -> 2 -> 4 -> 5 */
+  
+  /* Traverse till the node to be deleted*/
+	while(i != pos)
+	{
+		temp = temp->next;
+		i++;
+	}
+  
+  /* Delete the node after the 3rd node */
+  /*temp currently pointing to [3rd node | next]*/
+  /* --------[3rd node | next] -> [del_node | next] -> [4th node | next].......*/
+  
+	del_node = temp->next;
+  
+  /* -------[3rd node | next] -> [4th node | next]........*/
+	temp->next = temp->next->next;
+  
+  /* [del_node | NULL] */
+	del_node->next = NULL;
+	free(del_node);
+}
