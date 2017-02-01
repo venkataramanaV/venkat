@@ -1,0 +1,70 @@
+/* read a string from the file for every comma */
+/* and check the string is palindrome */
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+char* string_reverse(char *str);
+
+int main()
+{
+	FILE *fd;
+	int RC;
+	char c;
+	char str[1024],*revstr;
+	int i = 0;
+
+	fd = fopen("/home/venkat/venkatProg/file.txt","r");
+//	str = malloc(1024);
+//	memset(str,'\0',1024);
+
+	if(fd == NULL)
+		printf("error in opening file\n");
+
+	do
+	{
+		c = fgetc(fd);
+
+		if(c != ',')
+		{
+			/* apped the char to string */
+		//	printf("%c",c);
+			str[i] = c;
+			printf("the string is %s\n",str);
+			i++;
+			
+		}
+		else
+		{
+			/* assign NULL termination to the string */
+			/* and move character ahead i.e, after comma */
+			printf("else\n");
+			str[i] = '\0';
+			i++;
+//			printf("the string is %s\n",str);
+//			str = str + 1;
+//			revstr = string_reverse(str);
+//			RC = chk_palindrome(str);
+//			printf("revstr = %s",revstr);
+		}
+
+	} while (c != EOF);
+
+}
+
+char* string_reverse(char *str)
+{
+	static int i = 0;
+	char *r;
+	r = malloc(1024);
+	memset(r,'\0',1024);
+
+	while(*str)
+	{
+		string_reverse(str++);
+		r = r + i;
+		*r = *str;
+	}
+	return r;
+}
