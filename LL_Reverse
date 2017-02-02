@@ -1,0 +1,115 @@
+/* Printing the values of list in reverse : using recursive function */
+/* Reversing the list : using itterative method */
+
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+	int data;
+	struct node *next;
+} *head,*new, *temp, *curr,*prev, *next;
+
+void create_list(int);
+void print_list();
+void rec_rev(struct node *temp);
+void iter_rev();
+
+int main()
+{
+	create_list(5);
+	print_list();
+
+	temp = head;
+	rec_rev(temp);
+	printf("\n");
+
+	iter_rev();
+
+}
+
+void create_list(int n)
+{
+	int i;
+	head = (struct node*)malloc(sizeof (struct node));
+	head = NULL;
+	temp = (struct node*)malloc(sizeof (struct node));
+
+	for(i=1; i<=n ; i++)
+	{
+		new = (struct node*)malloc(sizeof (struct node));
+		new->data = i;
+		new->next = NULL;
+
+		if(head == NULL)
+			head = new;
+		else if (head->next == NULL)
+			head->next = new;
+		else
+		{
+			temp = head;	
+			while(temp->next != NULL)
+			{
+				temp = temp->next;
+			}
+			temp->next = new;
+		}
+
+	}
+}
+
+void print_list()
+{
+//	temp = (struct node*)malloc(sizeof(struct node));
+	temp = head;
+	while(temp->next != NULL)
+	{
+		printf("%d->",temp->data);
+		temp=temp->next;
+	}
+	printf("%d\n",temp->data);
+}
+
+/* Printing the values of list in reverse : using recursive function */
+void rec_rev(struct node *temp)
+{
+	if(temp != NULL)
+	{				
+		rec_rev(temp->next);
+		printf("%d->",temp->data);
+	}
+}
+
+/* Reversing the list : using itterative method */
+/* Three list is required: curr, next, prev */
+/* curr : assigne address of head to curr, then curr will be pointing to list */
+/* prev : assign to NULL */
+/* next : points to the next node of the list */
+
+void iter_rev()
+{
+	curr = head;
+	prev = NULL;
+
+	/* check whether list is NULL */	
+	while(curr != NULL)
+	{
+		/* get the next node in the current list */
+		next = curr->next;
+		/* now seperate the current node from the list */
+		curr->next=prev;
+		/* assign the seperated node to prev list */
+		/* note current node is the seperated from the main list */
+		prev = curr;
+		/* reassign the main list starting(curr) node with next node*/
+		curr = next;
+	}
+
+	temp = prev;
+	while(temp->next != NULL)
+	{
+		printf("%d->",temp->data);
+		temp=temp->next;
+	}
+	printf("%d\n",temp->data);
+}
