@@ -49,3 +49,38 @@
         when number of CORE & CPU increases, the parallel processing also increases which makes the system to perform faster.
         
    
+****************************************************************************
+*                             Embedded LINUX                               *
+****************************************************************************
+
+How to compile new Kernal & upload to the Compact Flash card (CF card):
+
+                                       --------------------
+                                       |  project folder  |
+                                       --------------------
+                                                 |
+                                                 v
+                                 -------------------------------------
+                                 |                                   |
+                                 v                                   v
+                            ------------                        ------------
+                            |   S/W    |                        | makeld.sh|   this make scrip initiates the compilation of the 
+                            ------------                        ------------   app src, kernal & loads to CF card. 
+                                 |
+                                 v
+       ---------------------------------------------------------------
+       |                             |                               |
+       v                             v                               v
+  ------------                  ------------                   ------------------
+  |    SRC   |                  | H/W Name |                   |Startup scripts |
+  ------------                  ------------                   ------------------
+    APP Code                    Kernal Code                     scripts to start compile individula folder
+                                     |
+                                     v
+          ---------------------------------------------------------------
+          |              |                |               |             |
+          v              v                v               v             v
+       -------        -------         ----------      ----------    ----------
+       | MBR |        |GRUB |         | pcmcia |      | rootfs |    | target |
+       -------        -------         ----------      ----------    ----------   
+                      
