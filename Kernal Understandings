@@ -15,6 +15,7 @@
 ***************
 1. lscpu (this command gives the details of cpu from here we can find how many CPU & core is present in the system)
 
+2. make ARCH=arm CROSS_COMPILE=/usr/bin/arm_linux_gnueabi-menuconfig  (for cross compile)
 
 **************************
 *         Learnings      *
@@ -101,3 +102,26 @@ How to compile new Kernal & upload to the Compact Flash card (CF card):
    -----------------------------------------------------------------
    |   boot   |  bzimage  |  rootfs  | startup scripts |  APP/JRE  |
    -----------------------------------------------------------------
+
+*************************************************
+* Some commands required for kernal compilation *
+*************************************************
+1. First configur the kernal by selecting required H/W & de-select the unwanted H/W.
+   this ensures that only the modules required for selected component will be compiled.
+   
+   make menuconfig
+   make defconfig
+   
+2. "make -C linux dep"      ->    "-C" option will change to linux directory and compiled the dependency modules.
+
+3. "make -C linux bzimage"  ->    compiles whole kernal code & convert to zip format
+
+4. "make -C linux modules"  ->    compiles whole driver modules, unless module directory is compiled we cannot insert 
+                                  any new modules in run time.
+
+6. "cp -f linux/driver/driverxxxx/module.o rootfs/devicexxx/" : 
+                    before compiling the rootfs, load the required modules into the rootfs/device.
+                    
+5. "make -C rootfs all"     ->    compiles modules required for rootfs
+   cp -f rootfs/rootfs.gz target/  copies the rootfs image to the CF card
+   
