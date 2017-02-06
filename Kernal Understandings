@@ -83,4 +83,21 @@ How to compile new Kernal & upload to the Compact Flash card (CF card):
        -------        -------         ----------      ----------    ----------
        | MBR |        |GRUB |         | pcmcia |      | rootfs |    | target |
        -------        -------         ----------      ----------    ----------   
-                      
+                 Boot loader        driver to drive                 CF card will be mounted 
+                 stage 2, loads     the CF card                     on the machine & patitioned 
+                 the kernal                                         where the corresponding objects will
+                                                                    be placed into the corresponding partition.
+                                                                    
+***************************                                                                    
+* How to partion the card *
+***************************
+
+1. Insert the card to the machine.
+2. once inserted, find the device in the machine using "fdisk -l"
+3. To format/create partition, use the command "fdisk /dev/<device name>" 
+   once the "fdisk" command is executed it displays the help page, the various options can be
+   used based on the requirement needed.
+   
+   -----------------------------------------------------------------
+   |   boot   |  bzimage  |  rootfs  | startup scripts |  APP/JRE  |
+   -----------------------------------------------------------------
