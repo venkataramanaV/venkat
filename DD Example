@@ -1,0 +1,86 @@
+#include<linux/module.h>
+#include<linux/kernel.h>
+#include<linux/init.h>
+#include<linux/version.h>
+#include<linux/fs.h>
+#include<asm/uaccess.h>
+#include<linux/errno.h>
+#include<linux/cdev.h>
+#include<asm/types.h>
+
+
+
+#define MAJORNO 300
+#define MINORNO 0
+
+#define CHAR_DEV_NAME "srinu_device"
+
+dev_t mydev;
+int count = 1;
+struct cdev *sk_cdev;
+
+static int srinu_open(struct inode *inode, struct file *filp)
+{
+	pr_info("open called\n");
+	return 0;
+}
+
+static int srinu_close(struct inode *inode, struct file *filp)
+{
+	pr_info("close called\n");
+	return 0;
+}
+
+static ssize_t srinu_read(struct file *filp, char __user *buf, size_t sz, loff_t *ppos)
+{
+	pr_info("read called\n");
+	return 0;
+}
+
+static ssize_t srinu_write(struct file*filp, const char *buf, size_t sz, loff_t *ppos)
+{
+	pr_info("write called\n");
+	return 0;
+}
+
+static struct file_operations srinu_ppos={
+	.owner = THIS_MODULE,
+	.open = srinu_open,
+	.release = srinu_close,
+	.read = srinu_read,
+	.write = srinu_write
+};
+
+
+static int __init char_srinu_init(void)
+{
+	int ret;
+	mydev = MKDEV(MAJORNO, MINORNO);
+	register_chrdev_region(mydev, count,CHAR_DEV_NAME);
+	sk_cdev=cdev_alloc();
+	cdev_init(sk_cdev, &srinu_ppos);
+	ret = cdev_add(sk_cdev,mydev,count);
+	if(ret<0)
+	{
+		pr_info("Error registering driver\n");
+		return ret;
+	}
+	printk(KERN_INFO "Device registered :%s\n", CHAR_DEV_NAME);
+	return 0;
+}
+static void __exit char_srinu_exit(void)
+{
+	cdev_del(sk_cdev);
+	unregister_chrdev_region(mydev,count);
+	printk(KERN_INFO "char_dev_unloaded\n");
+}
+
+module_init(char_srinu_init);
+module_exit(char_srinu_exit);
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("SRINUUUUU");
+MODULE_DESCRIPTION("CHAR DRIVER DEMO");
+
+
+
