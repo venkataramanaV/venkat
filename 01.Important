@@ -195,7 +195,7 @@
         That's not what you want.
         
         The way to get around this is to declare the pointer gadget as volatile. 
-        This way the compiler is forced to do what you wrote. 
+        This way the compiler is forced to do what you wrote
         It can't remove the memory assignments, it can't cache variables in registers and 
         it can't change the order of assignments either:
         
@@ -216,3 +216,27 @@
       
       A pointer to a constant is declared as : const int *ptr (the location of 'const' makes the pointer 'ptr' as a 
       pointer to constant.
+      
+
+********
+1.	Bottom Half & Top Half
+2.	When Core dump get generate & how u will analyse
+3.	What is kernel panic.
+4.	How u will generate interrupt
+5.	What is semephore & Mutex ? when they are used.
+6.	What are all the synchronosation techinques.
+7.	What is call back function.
+8.	How u will find little or big endian?
+9.	whether "unresolved symbol/reference" is a compiler/linker error?
+10.	What are all the ways to communicate with kernel.
+11.	When coredump will be generated & how u will analyzed.
+12.	How to you debug using trace32
+13.	How do you use Cscope
+14.	what is ctag.
+15.	how do you bring up the board.
+16.	what is self refferential structure & why we are opting this insted of array.
+17.	what is the need for going to structure padding?
+18.	what is the basic difference of binary semaphore & mutex.
+19.	How OS shedule the process time to different process?
+20.	Difference b/w preemtive & non-preemtive
+21. How do u use git repositary.
