@@ -82,7 +82,7 @@ int main()
 
 void idp_fc()
 {
-	int rc,r,fd2[2],status,ofset;
+	int rc,r,fd2[2],status,ofset,i;
 	char buf[60],rec[2],rbuf[2];
 	FILE *fdr;
 
@@ -106,7 +106,10 @@ void idp_fc()
 		close(fd2[1]); 
 		read(fd2[0],rbuf,sizeof(rbuf));
                 printf("child: fetching the record = %s\n",rbuf);
-
+                
+                r = atoi(rbuf);
+                printf("child: fetching the record = %d\n",r);
+                
 		/* Fetch the particular record from the file */
 		fdr = fopen("/home/venkat/test.txt","r+");
 		if (fdr == NULL) {
@@ -114,12 +117,13 @@ void idp_fc()
 			exit(1);
 		}
 		ofset = 0;
-		while(fdr != EOF)
+		/*while(feof(fdr))
 		{
 			memset(cnameinfo,'\0',sizeof(struct info));
 			fread(rec,sizeof(struct info),0,fdr);
 			memcpy(cnameinfo,rec,sizeof(struct info));
-			if (strcmp(cnameinfo->id,rbuf) == 0) {
+			
+			if (strncmp(cnameinfo->id,rbuf,2) == 0) {
 				printf("i m the record\n");
 			}
 			else {
@@ -129,8 +133,21 @@ void idp_fc()
 					exit(1);
 				}
 			}
+		}*/
+		printf("the sizeof struct = %d\n",sizeof(struct info));
+		for (i=0;i<(r-1);i++) {
+		     
+		     fseek(fdr,sizeof(struct info),SEEK_CUR);
+		     ofset = ftell(fdr);
+		     printf("child: ofset = %d\n",ofset);
 		}
 
+                r = ftell(fdr);
+                printf("child: Current Position = %d\n",r);
+                memset(rec,'\0',sizeof(struct info));
+                fread(rec,sizeof(struct info),1,fdr);
+                printf("the record is rec = %s",rec);
+                
 		fclose(fdr);
 
 	} 
@@ -145,4 +162,5 @@ void idp_fc()
 		wait(&status);
 	}
 }
+
 
