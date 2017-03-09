@@ -1,0 +1,2206 @@
+---------------------------------------------------------------------------
+
+Day – 1
+
+1. Define OS?
+
+---------------------------------------------------------------------------
+
+Day - 2
+
+1. Write notes on different levels of language.
+2. What is the difference b/w procedure oriented and object oriented 
+   programming languages?
+3. Give some examples of procedure and object oriented programming 
+   languages.
+4. State features of OOPs concepts.
+5. What is the use of assembler? 
+6. What is the difference between compiler and interpretter?
+7. Give examples of assembler, compiler and interpretter.
+
+---------------------------------------------------------------------------
+
+Day -3
+
+1. What is the meant by booting?
+2. State the booting sequence (for example in Linux)
+3. What is the use of boot loader?
+4. What is the difference b/w primary and secondary memory
+5. What is the difference between RAM and ROM
+6. What is the need of hard disk since we have RAM
+7. What is the need of RAM since we have Hard disk
+8. What is the BIOS?
+9. What is meant by POST? Write small notes on it.
+10. Write short notes on memory devices (Ex: RAM, SRAM, DRAM, EEPROM, Flash..) 
+
+---------------------------------------------------------------------------
+
+Day – 4 
+Write Binary values of 0 to 127..
+
+convert into other forms for below values
+(binary, decimal, octal, hexadecimal)?
+
+(444)8
+(326)8
+(476)8
+(777)8
+(0xABC)16
+(0x1B)16
+(0x2BF)16
+(0x3CD)16
+(0xFFF)16
+(0110 0010 0010)2
+(1110 0001 1110)2
+(1110 1110)2
+(1111 1111)2
+(846)10
+(1892)10
+(464)10
+(832)10
+(999)10
+
+-----------------------------------------------------------------------------
+
+2. Define Multiprocessing?
+3. Define Multithreading?
+4. Define Multitasking?
+5. Define Multiprogramming?
+6. Define Multiterminal?
+7. Define Virtual memory?
+8. Define Paging?
+9. Define Flat memory model?
+10. Define Swapping?
+11. Types of Scheduling
+12. Define Preemptive, Non-Preemptive Scheduling?
+13. Define page table?
+14. Define Thrasing?
+15. Define Process?
+
+-----------------------------------------------------------------------------
+
+
+
+Day – 3
+Write the below code in Little Endian, Big Endian Format
+
+int a = -1;
+short int b = -100;
+char c = 'a';
+char d = -100;
+long int e = -45;
+short int t = -45;
+unsigned short int g = 65535;
+unsigned char h = 'A';
+char i = -123;
+short j = -123;
+int k = -123;
+int l = -8464;
+short int m = -844;
+unsigned short int n = 65000;
+short int o = -4444;
+unsigned short int p = 64531;
+int q = -75537;
+
+
+
+
+1. Why size of int is not defined?
+2. What is the difference between Little Endian and Big Endian?
+3. What are the advantages/disadvantages in Little Endian and Big Endian
+4. Why Big endian format is chosen in network?
+5. What are all the C macros used for converting host to network order 
+and vice versa.
+
+-----------------------------------------------------------------------------
+
+Day – 4
+
+3. Usage of find, man and info commands
+4. Write the sizes of all data types?
+5. What is meant by Lvalue error in C Language?
+6. Difference between Pre-increment and Post-increment
+
+-----------------------------------------------------------------------------
+
+Day – 5
+Write the precedence table as per in Dennis Ritchie book
+
+-----------------------------------------------------------------------------
+
+Day - 6 
+find the value for below program
+
+main()
+{
+    int a, b, c = 0, d = 5;
+	a = c == 0;
+	c += d %= 3;
+	printf("%d %d %d %d\n", a++, 10 == b, !c, d == 5);
+}
+
+---------- 
+main()
+{
+	int a, b, c, d = 5;
+	a = b = c = d == 10;
+	b = !c;
+	a = 0 == c;
+	c += d %= 3;
+	printf("a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
+}
+---------- 
+main()
+{
+		int a, b, c, d;
+		a = b = c = d = 10;
+		a += b+= c *= d %= 3;
+		printf("a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
+}
+---------- 
+main()
+{
+		int a, b, c, d = 5;
+		a = b = c = d == 10;
+		b = !c;
+		a = 0 == c;
+		c += d %= 3;
+		printf("a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
+}
+---------- 
+main()
+{
+		int a, b, c, d;
+		d = a = (b = (c = (10, 20), 30), 40), 50;
+		printf("a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
+}
+---------- 
+main()
+{
+		int a, b = 10, c = 0, d = 5;
+		if (a = c == 0)
+				b += d *= a + 10;
+		else
+				d++;
+		printf("a = %d b = %d c = %d d = %d\n", a, b, c, d);
+}
+-----------------------------------------------------------------------------
+
+Day - 7
+
+Find output for the below programs:
+
+main()
+{
+	int a = 3;
+
+	switch (a) {
+	case 3:
+		a += 1;
+		break;
+
+	case 3:
+		a += a;
+		break;
+
+	case 4:
+		a += 10;
+		break;
+
+	default:
+		a -= 1;
+	}
+
+	printf("a = %d\n", a);
+}
+
+
+
+--------------------------------------------
+
+main()
+{
+	int a = 1, b = 2, c = 3, d = 4;
+
+	switch (a) {
+	case 1:
+		if (2 == b) {
+			d = ++a;
+			switch (d) {
+			case 1:
+				a++;
+				break;
+			case 2:
+				b++;
+			default:
+				c++;
+				break;
+			}
+			b = c++;
+		} else {
+			a = c++;
+		}
+
+	case 2:
+		if (d < 5) {
+			d = --a;
+	ccc		switch (a) {
+			case 1:
+				c++;
+				break;
+			case 0:
+				d++;
+				break;
+			default:
+				a++;
+				break;
+			}
+		}
+	default:
+		a++, b++;
+	}
+
+	printf("a = %d; b = %d; c = %d; d = %d\n", a, b, c, d);
+}
+
+-----------------------------
+main()
+{
+	float a = 3;
+
+	switch (a) {
+	case 3:
+		a += 1;
+		break;
+	default:
+		a -= 1;
+	}
+
+	printf("a = %f\n", a);
+}
+
+------------------------------ 
+
+main()
+{
+	float a = 3.14;
+
+	switch (a) {
+	case 3.14:
+		a += 1;
+		break;
+	default:
+		a -= 1;
+	}
+
+	printf("a = %f\n", a);
+}
+------------------------------ 
+
+main()
+{
+	int a = 3;
+	int b = 3;
+	int c = 4;
+	int d = 5;
+
+	switch (a) {
+	case b:
+		b += a;
+		break;
+
+	case c:
+		c += a;
+		break;
+
+	case d:
+		d += a;
+		break;
+
+	default:
+		a -= 1;
+	}
+
+	printf("a = %d\n", a);
+}
+
+------------------------------
+main()
+{
+	int a = 3;
+
+	switch (a) {
+	case 3:
+		a += 1;
+		continue;
+	default:
+		a -= 1;
+	}
+
+	printf("a = %d\n", a);
+}
+
+------------------------------
+
+main() 
+{ 
+        int i = 10; 
+        int j = 10; 
+        int k = 10; 
+
+        do { 
+                i++; 
+                j++; 
+                if (j > 15) 
+                        continue; 
+                k++; 
+        } while (i < 20); 
+        printf("%d\n", i); 
+        printf("%d\n", j); 
+        printf("%d\n", k); 
+} 
+--------------------------------- 
+main() 
+{ 
+	int a = 10; 
+	int b = 10; 
+	int c = 10; 
+	int d = 10; 
+
+	b = ++a; 
+	c = --b; 
+	d *= a; 
+	if (a < 20) { 
+		b++; 
+		c++; 
+	} else if (b < 20) { 
+		d++; 
+		a++; 
+	} 
+	d++; 
+	printf("a = %d\n", a); 
+	printf("b = %d\n", b); 
+	printf("c = %d\n", c); 
+	printf("d = %d\n", d); 
+} 
+-------------------------------------- 
+main() 
+{ 
+	int a = 10; 
+	int b = 10; 
+	int c = 10; 
+	int d = 10; 
+
+	b = ++a; 
+	c = --b; 
+	while (a < 20) { 
+		b = a++; 
+		c++; 
+	} 
+        if (b < 20) { 
+		d *= a; 
+		a++; 
+	} 
+	d++; 
+	printf("a = %d\n", a); 
+	printf("b = %d\n", b); n
+
+	printf("c = %d\n", c); 
+	printf("d = %d\n", d); 
+} 
+------------------------------------- 
+
+main() 
+{ 
+        int a = 10; 
+        int b = 10; 
+        int c = 10; 
+        int d = 10; 
+
+        b = ++a; 
+        c = --b; 
+        while (a < 30) { 
+                b = a++; 
+                c++; 
+                if (b < 20) { 
+                        d *= a; 
+                        a++; 
+                        continue; 
+                } 
+                d = c * d % 4; 
+                d++; 
+        } 
+        d++; 
+        printf("a = %d\n", a); 
+        printf("b = %d\n", b); 
+        printf("c = %d\n", c); 
+        printf("d = %d\n", d); 
+} 
+
+----------------------------- 
+main() 
+{ 
+        int a = 10; 
+        int b = 10; 
+        int c = 10; 
+        int d = 10; 
+
+        b = ++a; 
+        c = --b; 
+        while (a < 30) { 
+                b = a++; 
+                c++; 
+                if (b < 20) { 
+                        d *= a; 
+                        a++; 
+                        continue; 
+                } else if (d > 40) { 
+                        d++; 
+                        printf("Break\n"); 
+                        break; 
+                } 
+                d = c * d % 4; 
+                d++; 
+        } 
+        d++; 
+        printf("a = %d\n", a); 
+        printf("b = %d\n", b); 
+        printf("c = %d\n", c); 
+        printf("d = %d\n", d); 
+} 
+---------------------------------- 
+main() 
+{ 
+        int a = 10; 
+        int b = 10; 
+        int c = 10; 
+        int d = 10; 
+
+        b = ++a; 
+        c = --b; 
+        while (a < 30) { 
+                b = a++; 
+                c++; 
+                if (b < 20) { 
+                        d *= a; 
+                        a++; 
+                        while (c < 20) { 
+                                b = c++; 
+                                a = b != c; 
+                                if (c < 40) 
+                                        continue; 
+                                d++; 
+                        } 
+                        continue; 
+                } else if (d > 40) { 
+                        d++; 
+                        break; 
+                } else 
+                        d = c * d % 4; 
+                d++; 
+        } 
+        d++; 
+        printf("a = %d\n", a); 
+        printf("b = %d\n", b); 
+        printf("c = %d\n", c); 
+        printf("d = %d\n", d); 
+} 
+
+----------------------------------------------- 
+main() 
+{ 
+        int a = 10; 
+        int b = 10; 
+        int c = 10; 
+        int d = 10; 
+
+        b = ++a; 
+        c = --b; 
+
+        for (a = 10; a < 30; a++) { 
+                b = a++; 
+                c++; 
+                if (b < 20) { 
+                        d += a; 
+                        a++; 
+                        while (c < 20) { 
+                                b = c++; 
+                                a = b != c; 
+                                if (c < 40) 
+                                        continue; 
+                                d++; 
+                        } 
+                        continue; 
+                } else if (d > 40) { 
+                        d++; 
+                        break; 
+                } else 
+                        c = c * a % 4; 
+                d++; 
+        } 
+        d++; 
+        printf("a = %d\n", a); 
+        printf("b = %d\n", b); 
+        printf("c = %d\n", c); 
+        printf("d = %d\n", d); 
+} 
+
+-------------------------------------- 
+main() 
+{ 
+	int a = 10; 
+	int b = 10; 
+	int c = 10; 
+	int d = 10; 
+
+	b = ++a; 
+	c = --b; 
+	 
+	for (a = 10; a < 30; a++) { 
+		b = a++; 
+		c++; 
+		for (a = 10; a < 30; a++) { 
+        		if (b < 20) { 
+				d += a; 
+				a++; 
+				while (c < 20) { 
+					b = c++; 
+					a = b != c; 
+					if (c < 40) 
+						continue; 
+					d++; 
+				} 
+				continue; 
+			} else if (d > 40) { 
+				d++; 
+				break; 
+			} else 
+				c = c * a % 4; 
+			d++; 
+		} 
+		d++; 
+	} 
+	printf("a = %d\n", a); 
+	printf("b = %d\n", b); 
+	printf("c = %d\n", c); 
+	printf("d = %d\n", d); 
+} 
+----------------------------------------- 
+main() 
+{ 
+        int a = 10; 
+        int b = 10; 
+        int c = 10; 
+        int d = 10; 
+
+        for (; a < 30; a++) { 
+                printf("1st for\n"); 
+                c++; 
+                for (c = 10; ;) { 
+                        printf("2nd for\n"); 
+                        d++; 
+                        printf("b = %d\n", b); 
+                        if (b < 20) { 
+                                d += a; 
+                                b++; 
+                                for (; ;) { 
+                                        c++; 
+                                        printf("3nd for\n"); 
+                                        a = b != c; 
+                                        if (c > 20) 
+                                                break; 
+                                        d++; 
+                                } 
+                                continue; 
+                        } else { 
+                                a++, b++, c++; 
+                                break; 
+                        } 
+                } 
+                d++; 
+        } 
+        printf("a = %d\n", a); 
+        printf("b = %d\n", b); 
+        printf("c = %d\n", c); 
+        printf("d = %d\n", d); 
+} 
+------------------------------------------------------------ 
+
+main() 
+{ 
+	int a = 10; 
+	int b = 10; 
+	int c = 10; 
+	int d = 10; 
+	int e = 10; 
+	int f = 20; 
+
+	for (; a < 30; a++) { 
+		printf("1st for\n"); 
+		for (; ;) { 
+			c++; e++; 
+			if (c > 20) { 
+				e %= 2; 
+				break; 
+				while (f < 10) { 
+					f++; 
+					continue; 
+				} 
+			} else { 
+				e--; 
+				continue; 
+			} 
+		} 
+		for (c = 10; ;) { 
+			printf("2nd for\n"); 
+			d++; 
+			printf("b = %d\n", b); 
+        		if (b < 20) { 
+				d += a; 
+				b++; 
+				for (; ;) { 
+					c++; 
+			                printf("3nd for\n"); 
+					a = b != c; 
+					if (c > 20) 
+						break; 
+					d++; 
+				} 
+				continue; 
+			} else { 
+				a++, b++, c++; 
+				break; 
+			} 
+		} 
+		d++; 
+	} 
+	printf("a = %d\n", a); 
+	printf("b = %d\n", b); 
+	printf("c = %d\n", c); 
+	printf("d = %d\n", d); 
+	printf("e = %d\n", e); 
+	printf("f = %d\n", f); 
+} 
+	 
+-------------------------------------------------------- 
+main()
+{
+    int i = 10;
+    int j = 10;
+    int k = 10;
+
+
+    do {
+        i++;
+        
+        while (j++ < 20) {
+            switch (k) {
+            case 10:
+                k++;
+                continue;
+            case 11:
+                i++;
+                break;
+            default:
+                j++;
+                break;
+            }
+            k++;
+        }
+    } while (i < 20);
+    
+    printf("%d\n", i);
+    printf("%d\n", j);
+    printf("%d\n", k);
+}
+----------------------------- 
+
+Day 7:
+
+Find the output for the below un-aligned code
+
+main()
+{
+	int a, b, c, d;
+
+	a = b = c = d = 1;
+	while (a++ < 10)
+		;
+	if (b > a);
+	d++;
+
+	printf("a = %d b = %d c = %d d = %d\n", a, b, c, d);
+}
+
+---------------------------------
+
+main()
+{
+	int a, b, c, d;
+
+	a = b = c = d = 1;
+	while (a++ < 10)
+		;
+	if (b > a)
+		d++;
+		a++;
+
+	printf("a = %d b = %d c = %d d = %d\n", a, b, c, d);
+}
+	
+
+main()
+{
+	int a, b, c, d;
+
+	a = b = c = d = 1;
+	while (a++ < 10)
+	if (b < a)
+		d++;
+		a++;
+
+	printf("a = %d b = %d c = %d d = %d\n", a, b, c, d);
+}
+	
+main()
+{
+	int a, b, c, d;
+
+	a = 10;
+	d = b = 0;
+	while (a-- < b++)
+		c = d++;
+
+	printf("a = %d b = %d c = %d d = %d\n", a, b, c, d);
+}
+	
+
+main()
+{
+	int a, b, c, d;
+
+	a = 10;
+	d = b = 0;
+	for ( ; ;) {
+		if (a-- < b++)
+			break;
+		c = d++;
+	}
+
+	printf("a = %d b = %d c = %d d = %d\n", a, b, c, d);
+}
+	
+
+main()
+{
+	int a, b, c, d;
+
+	a = 10;
+	d = b = 2;
+
+	for (a++; a < 20, --b; a++) 
+		c = d++;
+
+	printf("a = %d b = %d c = %d d = %d\n", a, b, c, d);
+}
+	
+
+main()
+{
+	int a, b, c, d;
+
+	a = d = b = c = -10;
+
+	for (b *= -2; a++, --b; a < 5) 
+		c = d++;
+
+	printf("a = %d b = %d c = %d d = %d\n", a, b, c, d);
+}
+	
+
+main()
+{
+	int a, b, c, d;
+
+	a = d = b = c = 10;
+
+	for (; a < 10, --b; ) 
+		c = d++;
+
+	printf("a = %d b = %d c = %d d = %d\n", a, b, c, d);
+}
+
+
+main()
+{
+	int a, b, c, d;
+
+	a = d = b = c = 10;
+
+	for (; a < 10 && --b; ) 
+		c = d++;
+
+	printf("a = %d b = %d c = %d d = %d\n", a, b, c, d);
+}
+
+
+-------------------------------------------------------------
+
+Day - 6 
+
+Draw memory map and symbol table
+int a;
+int b[4];
+char c[8];
+double d[2];
+int e;
+main()
+{
+	a = 100;
+	c[0] = 20;
+	c[1] = 20;
+	c[2] = 20;
+	c[3] = 20;
+	c[4] = 20;
+	b[1] = 10;
+	b[5] = a;
+	c[4] = 'k';
+	d[1] = 10;
+	e = b[2];
+	printf("a=%d\nb[1]=%d\nb[3]=%d\nc[0]=%d\nc[1]=%d\nc[2]=%d\n"
+			"c[3]=%d\nc[4]=%c\nd[1]=%lf\ne=%d\n", a, b[1], b[3], 
+			c[0], c[1], c[2], c[3], c[4], d[1], e);
+}
+
+-----------------
+
+int a = 10;
+int b[3];
+int c[2];
+int d = 40;
+main()
+{
+	c[1] = c[0] = 40;
+	b[3] = 20;
+	c[1] = 20;
+	printf("\nc[0]=%d\nc[1]=%d\nb[2]=%d\nb[3]=%d\nc[1]=%d\nd=%d\n", 
+		c[0], c[1], b[2], b[3], c[1], d);
+}
+
+------------------
+
+int a = 10;
+int b[2];
+int c[1];
+int d = 20;
+main()
+{
+	b[0] = b[1] = c[1] = 20;
+	c[-1] = 10;
+	printf("c[-1]=%d\na=%d\nb[0]=%d\nb[1]=%d\nc[1]=%d\nd=%d", 
+			c[-1], a, b[0], b[1], c[1], d);
+}
+
+-------------------
+
+int a;
+int b[4];
+char c[16];
+double d[4];
+char e[12];
+int f[6];
+main()
+{
+	a = 10;
+	b[1] = a + 10;
+	c[4] = 'k';
+	e[4] = c[4] + 1;
+	f[2] = b[1] +a;
+	d[2] = f[2] +10;
+	b[3] = a + b[1];
+	c[5] = e[4] - 1;
+	c[6] = c[4] + 3;
+	e[6] = c[6] + 2;
+	b[0] = c[5] - e[4];
+	b[2] = e[6] + b[1];
+	d[3] = b[2] + c[4];
+	printf("\n%d\n%d\n%d\n%d\n%d\n%lf\n%d\n%d\n%d\n%d\n%d\n%d\n%lf\n", 
+		a, b[1], c[4], e[4], f[2], d[2], b[3], c[5], c[6], 
+		e[6], b[0], b[2], d[3]);
+}
+
+--------------
+
+int a[5] = {1};
+char b[12] = {'s', 'a', 'n'};
+char c[12] = {0, 0, 's', 'e', 'l', '0'};
+main()
+{
+	char d[] = {'m', 'a', 'n', '\0'};
+	int e[5] = {1, 2};
+	int i;
+
+	a[4] = c[5];
+	a[3] = e[2] + e[3];
+	e[4]++;
+	d[2] = c[5] + a[0];
+	c[0] = d[2] + d[3];
+	c[8] = 'u';
+	for (i = 0; i < 12; i++) {
+		printf("c[%d] = %c\n", i, c[i]);
+	}
+	printf("%s\n", c);
+	printf("%s\n", b);
+}
+
+-----------------------------------------------------------------------------------
+a. What is meant by structure padding? Why it is needed?
+b. How to avoid padding? Why do we need to avoid padding?
+c. How to avoid padding for a given structure only? 
+ 
+
+Find out the structure size by either with and with out using structure padding
+and draw the memory map:
+
+Pgm-1
+	struct abc {
+		char a;
+		int b;
+		char c;
+		int d;
+		char e;
+		int f;
+	};
+	
+Pgm-2
+	struct def {
+		char a;
+		char b;
+		int c;
+		int d;
+		char e;
+		int f;
+	};
+Pgm-3
+	struct gh {
+		char a;
+		char b;
+		char c;
+		int d;
+		int e;
+		int f;
+	};
+Pgm-4
+	struct ijk {
+		int a;
+		int b;
+		int c;
+		char d;
+		char e;
+		char f;
+	};
+Pgm-5
+	struct date {
+		int empid;
+		int salary;
+	};
+	struct data {
+		int empid;
+		char name[12];
+		int salary;
+	};
+
+Pgm - 6
+
+	struct point {
+		short int x;
+		int y;
+		short int z;
+		int k;
+	}
+
+Pgm - 7
+
+	struct point {
+		short int a;
+		char b;
+		char c;
+		int d;
+		short int e;
+		char f;
+	};
+	
+	
+-----------------------------------------------------------------------------
+Day -6
+1.program to count no of digit to the given input number.
+2.program to multiply the given input's digits.
+
+-----------------------------------------------------------------------------
+
+Day -7
+1.how to start the execution than main function?.
+2.find out function definition for printf?.
+3.Why function declaration is must?.
+4.Why do we need to write function declaration?.
+5.if function invoke proceed the function definition 
+  (if there is no function declaration) then how your compiler determine.?.
+6.define function?.
+7.define procedure oriented language?.
+8.write function program for below concept
+i. without argument, without return value.
+ii. With argument, with return value
+iii. with argument, without return value.
+iv. Without argument, with return value.
+
+-----------------------------------------------------------------------------
+
+Day -8
+1.usage of modular programming?.
+2.objective of writing function declaration?.
+3.what is mean by translation unit?.
+
+-----------------------------------------------------------------------------
+
+Day -9
+1.why we need to go for a static function ?.
+2.what do you understand from the static function?.
+3.scope and life time for static, global and local variables?.
+4.write a program to print the function name, file name, line number?.
+5.when the linker will give the error?.
+6.four segment of memory?.
+7.Program
+i. multiple defined global variables
+ii. undefined global variable?.
+iii. multiple defined global functions?.
+iv. Undefined global functions?.
+8.differentiate CISC and RISC?.
+
+-----------------------------------------------------------------------------
+
+Day - 10
+-----------------------------------------------------------------------------
+
+Day – 11
+Find the value for below program
+
+#include<stdio.h>
+int global = 1;
+int fun();
+main()
+{
+		fun();
+		fun();
+		fun();
+}
+int fun()
+{
+		int local = 1;
+		static int slocal = 1;
+		local++, slocal++, global++;
+		printf("local = %d slocal = %d global = %d\n", 
+                local, slocal, global);
+}
+----------------
+
+int global = 10;
+main()
+{
+		int global = 20;
+		global++;
+		fun();
+		printf("%s: global = %d\n", __FUNCTION__, global);
+}
+int fun()
+{
+		global++;
+		printf("%s: global = %d\n", __FUNCTION__, global);
+}
+
+----------------
+
+#include <stdio.h>
+main()
+{
+		int local = 20;
+		printf("%s: local = %d\n", __FUNCTION__, local);
+		fun(local);
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+int fun(int local)
+{
+		local++;
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+
+----------------
+
+#include <stdio.h>
+int local = 20;
+main()
+{
+		printf("%s: local = %d\n", __FUNCTION__, local);
+		fun();
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+int fun()
+{
+		local++;
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+
+----------------
+
+#include <stdio.h>
+int local = 20;
+main()
+{
+		printf("%s: local = %d\n", __FUNCTION__, local);
+		fun(local);
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+int fun(int local)
+{
+		local++;
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+
+----------------
+
+#include <stdio.h>
+static int local = 20;
+main()
+{
+		printf("%s: local = %d\n", __FUNCTION__, local);
+		fun(local);
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+int fun(int local)
+{
+		local++;
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+
+----------------
+
+#include <stdio.h>
+int local = 20;
+main()
+{
+		printf("%s: local = %d\n", __FUNCTION__, local);
+		fun(local);
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+int fun(int local)
+{
+		{
+				extern local;
+				local++;
+				printf("%d", local);
+		}
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+
+----------------
+
+#include <stdio.h>
+int local = 10;
+main()
+{
+		int local = 20;
+		{
+				int local;
+				local = 85;
+				{
+						int local = 40;
+						printf("%s:%d: local = %d\n",
+                               __FUNCTION__, __LINE__, local);
+				}
+				printf("%s:%d: local = %d\n",
+                                __FUNCTION__, __LINE__, local);
+		}
+		local = 65;
+		{
+				extern int local;
+				local++;
+				printf("%s:%d: local = %d\n", 
+                                 __FUNCTION__, __LINE__, local);
+		}
+		printf("%s:%d: local = %d\n", 
+                                 __FUNCTION__, __LINE__, local);
+}
+
+----------------
+
+#include <stdio.h>
+/* Is there any compilation error in the below prog; 
+ * since global and param using the same variable name? 
+ * If no, justify it */
+int local = 20;
+int fun(int local)
+{
+		local++;
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+main()
+{
+		printf("%s: local = %d\n", __FUNCTION__, local);
+		fun(local);
+		printf("%s: local = %d\n", __FUNCTION__, local);
+}
+
+----------------
+
+#include <stdio.h>
+int local = 10;
+main()
+{
+		int local = 20;
+		{
+				int local;
+				local = 85;
+				{
+						int local = 40;
+						printf("%s:%d: local = %d\n",
+                              __FUNCTION__, __LINE__, local);
+				}
+				printf("%s:%d: local = %d\n", __FUNCTION__, 
+                              __LINE__, local);
+		}
+		local = 65;
+		{
+				extern int local;
+				local++;
+				printf("%s:%d: local = %d\n", 
+                       __FUNCTION__, __LINE__, local);
+		}
+		printf("%s:%d: local = %d\n", 
+                       __FUNCTION__, __LINE__, local);
+}
+
+-----------------------------------------------------------------------------
+
+
+assignment 13:
+find what is the error throw by compiler and linker:
+
+#include<stdio.h>
+		auto int x; //
+main()
+{
+		int y;
+		auto int x;
+		y = x;
+}
+
+----------------
+#include<stdio.h>
+int x = 10;
+main()
+{
+		call();
+}
+extern.c
+extern int x;
+int call()
+{
+}
+
+----------------
+#include<stdio.h>
+main()
+{
+		int x = 10;
+		x = call(x);
+}
+int call(register int x)
+{
+		static int y = x;
+		y++;
+		return y;
+}
+
+----------------
+#include<stdio.h>
+main()
+{
+		int x = 10;
+		x = call(x);
+}
+int call(register int x)
+{
+		register int y = x;
+		y++;
+		return y;
+}
+
+----------------
+#include<stdio.h>
+int x = 10;
+int y = x;
+main()
+{
+		int a;
+		a = y;
+		printf("d", a);
+}
+
+----------------
+int x = 10;
+#include<stdio.h>
+main()
+{
+		//
+		printf("%d", call());
+}
+int x = 20;
+int call()
+{
+		int b;
+		b = x;
+}
+
+----------------
+#include<stdio.h>
+register int y; //Whats the compiler error when register defined as global
+main()
+{
+		int x;
+		register int y;
+		y = pass(x);
+		printf("add of y %d", &y);
+}
+int pass(register int a)
+{
+}
+
+----------------
+#include<stdio.h>
+int val =100;
+main()
+{
+		static int sval = 10;
+		int y;
+		y = pass(val);
+}
+void pass(int val)
+{
+		val++;
+		sval++;
+}
+
+----------------
+#include<stdio.h>
+static int sval = 1;
+int gval = 1;
+main()
+{
+		int a, b, c;
+		a = call();
+		printf("sval = %d\ngval = %d\na = %d\n", sval, gval, a);
+		b = call();
+		printf("sval = %d\ngval = %d\na = %d\nb = %d\n", 
+                sval, gval, a, b);
+		c = call();
+		printf("sval = %d\ngval = %d\na = %d\nb = %d\nc = %d", 
+                sval, gval, a, b, c);
+}
+int call()
+{
+		static int sval = 1;
+		int lval = 1;
+		printf("call\n");
+		gval++;
+		sval++;
+		lval++;
+		//
+		printf("val = %d\ngval = %d\n", sval, gval);
+		return (sval + lval);
+}
+
+-----------------------------------------------------------------------------
+
+assignment 15:
+Find linker errors in the below program
+
+#include<stdio.h>
+int glob = 10;
+main()
+{
+		int val;
+		val = 100;
+		call();
+		val = 20;
+		call();
+		printf("%s:val = %d\tglob:%d\n", __FUNCTION__, val, glob);
+}
+int call()
+{
+		int val = 10;
+		val++;
+		update();
+		printf("val=%d\tglob=%d\n", val, glob);
+}
+
+updat.c
+extern int glob;
+int update()
+{
+		glob++;
+}
+
+---------------------------------
+main.c
+******
+#include<stdio.h>
+main()
+{
+		call();
+}
+
+call.c
+******
+#include<stdio.h>
+extern int a;
+int call()
+{
+		a++;
+		printf("the a value=%d", a);
+}
+
+---------------------------------
+
+/*link1.c*/
+#include<stdio.h>
+int a = 10;
+main()
+{
+		call();
+		printf("the a value = %d", a);
+}
+
+/*link2.c*/
+int a = 19;
+int call()
+{
+		a++;
+}
+
+---------------------------------
+
+/*linker1.c*/
+#include<stdio.h>
+main()
+{
+		call();
+}
+
+/*linker2.c*/
+#include<stdio.h>
+extern int a;
+int call()
+{
+		a++;
+		printf("the a value=%d", a);
+}
+
+---------------------------------
+
+/*link1.c*/
+#include<stdio.h>
+int a = 10;
+main()
+{
+		call();
+		printf("the a value = %d", a);
+}
+
+/*link2.c*/
+int a = 19;
+int call()
+{
+		a++;
+}
+-----------------------------------------------------------------------------
+
+assignment 16:
+write a function for below
+without argument without return value
+with argument without return value
+with argument with return value
+without argument with return value
+-----------------------------------------------------------------------------
+assignment 17:
+
+Generate assembly code for the below program
+int a = 10;
+int b = 20;
+int c = 30;
+main()
+{
+		int c = 10;
+		int f;
+		{
+				int d, a;
+				a = ++b;
+				d = ++b;
+				d = c +a;
+				{
+						extern int c;
+						c = a + b;
+						f = c++;
+				}
+				a = c++;
+		}
+		a = b + c;
+}
+
+----------------
+
+int a = 10;
+main()
+{
+	int b = 10;
+	a = ++a;
+	{
+		int a, c;
+		a = ++b;
+		{
+			int b, d;
+			b = ++a;
+			c = ++b;
+			{
+				extern int a;
+				a = ++c;
+				d = a + b;
+			}
+			d++;
+		}
+		a++;
+	}
+	a++;
+}
+
+----------------
+
+#include<stdio.h>
+int a = 10;
+int b = 20;
+main()
+{
+		int c = 30;
+		int d = 40;
+		{
+				int d, e;
+				d = ++a;
+				e = ++c;
+				printf("the value is d = %d\n e = %d", d, e);
+		}
+		b = d;
+		printf("the value is a = %d\nb = %d\nc = %d\nd = %d", a, b, c, d);
+}
+
+--------------------------
+
+#include<stdio.h>
+int a = 10;
+int b = 10;
+main()
+{
+		int c = 30;
+		int d = 40;
+		{
+				int d, e;
+				d = ++a;
+				e = ++c;
+				{
+						int e, f;
+						e = ++b;
+						f = ++c;
+						printf("the value e = %d\n f = %d\n", e, f);
+				}
+				a = ++e;
+				printf("the value a = %d\n b = %d\n, c = %d\n, d = %d\n", 
+                    a, b, c, d, e);
+		}
+		b = d;
+		printf("the value a = %d\n b = %d\n, c = %d\n, d = %d\n", a, b, c, d);
+}
+
+--------------------------
+
+#include<stdio.h>
+int a = 10;
+int b = 10;
+main()
+{
+		int c = 30;
+		int d = 40;
+		{
+				int d, e;
+				d = ++a;
+				e = ++c;
+				printf("\na = %d\n, b = %d\n, c = %d\n, d = %d, e = %d", 
+					a, b, c, d, e);
+
+				{
+						int e, f;
+						e = ++b;
+						f = ++c;
+						printf("\na = %d\n, b = %d\n,"
+                               " c = %d\n, d = %d, e = %d", a, b, c, d, e);
+				}
+				a = ++e;
+				printf("\na = %d\n, b = %d\n, c = %d\n,"
+					" d = %d, e = %d", a, b, c, d, e);
+		}
+		b = ++d;
+		{
+				int b, e;
+				b = ++a;
+				e = a + d;
+				printf("\na = %d\n, b = %d\n, c = %d\n,"
+					" d = %d, e = %d", a, b, c, d, e);
+		}
+		printf("\na = %d\n, b = %d\n, c = %d\n, d = %d", a, b, c, d);
+}
+
+--------------------------
+#include<stdio.h>
+int a = 10;
+int b = 20;
+int c = 30;
+main()
+{
+		int e, f;
+		e = b + c;
+		{
+				int a, f;
+				a = ++e;
+				f = b++;
+				printf("a = %d\nf = %d\n", a, f);
+		}
+		e++;
+		f = e + a;
+		{
+				int c, e;
+				c = ++a;
+				e = ++f;
+				printf("c = %d\ne = %d\n", c, e);
+		}
+		b = e++;
+		f = ++a;
+		{
+				int p, q, r;
+				p = ++a;
+				q = p + f;
+				r = p + q;
+				printf("p = %d\nq = %d\nr = %d\n", p, q, r);
+		}
+		a++;
+		{
+				extern int a;
+				int b, c;
+				a = ++e;
+				b = f + a;
+				c = a + b;
+				printf("b = %d\nc = %d\n", b, c);
+		}
+		e++;
+		printf("a = %d\nb = %d\nc = %d\ne = %d\nf = %d\n", a, b, c, e, f);
+}
+---------------------------
+#include<stdio.h>
+int a = 10;
+int b = 20;
+int c = 30;
+main()
+{
+		int c = 40;
+		int f;
+		{
+				int d, a;
+				a = ++b;
+				d = c + a;
+				{
+						extern int c;
+						c = a + b;
+						f = c++;
+				}
+				a = c++;
+				printf("a = %d\n b = %d\nc = %d\nd = %d\n", a, b, c, d);
+		}
+		a = b + c;
+		printf("a = %d\n b = %d\nc = %d\n", a, b, c);
+}
+---------------------------
+#include<stdio.h>
+int val = 10;
+int sum = 20;
+void swapg();
+void swapl(int, int);
+main()
+{
+		int a, b, c;
+		a = ++val;
+		b = call(sum);
+		printf("a = %d\tb = %d\tsum = %d\tval = %d\n", a, b, sum, val);
+		c = add(val, b);
+		printf("a = %d\tb = %d\tc = %d\tsum = %d\tval = %d\n", 
+				a, b, c, sum, val);
+		b = sub(c, a);
+		printf("a = %d\tb = %d\tc = %d\tsum = %d\tval = %d\n", 
+				a, b, c, sum, val);
+		swapg();
+		printf("a = %d\tb = %d\tc = %d\tsum = %d\tval = %d\n", 
+				a, b, c, sum, val);
+		swapl(val, b);
+		printf("a = %d\tb = %d\tc = %d\tsum = %d\tval = %d\n", 
+				a, b, c, sum, val);
+		swapl(sum, val);
+		printf("a = %d\tb = %d\tc = %d\tsum = %d\tval = %d\n", 
+				a, b, c, sum, val);
+}
+int call(int sum)
+{
+		int x;
+		val = ++sum;
+		sum = pass(val, sum, val);
+		x = sum + val;
+		return x;
+}
+int add(int a, int b)
+{
+		int t;
+		t = pass(sum, a, val);
+		t++;
+		return t;
+}
+int sub(int sum, int t)
+{
+		int temp;
+		temp = pass(val, sum, t);
+		temp--;
+		return temp;
+}
+int pass(int a, int b, int sum)
+{
+		sum = a + b;
+		val = sum + val;
+		return val;
+}
+void swapg()
+{
+		int t;
+		t = val;
+		val = sum;
+		sum = t;
+}
+void swapl(int a, int b)
+{
+		int t;
+		t = a;
+		a = b;
+		b = t;
+}
+---------------------------
+#include<stdio.h>
+int a = 10;
+int b = 20;
+int c = 30;
+main()
+{
+		int a, p;
+		p = ++c;
+		a = ++b;
+		{
+				int b, c;
+				c = ++p;
+				add();
+				b = a++;
+		}
+		p = ++c;
+		add();
+}
+int add()
+{
+		int c;
+		c = ++a;
+		b = ++c;
+		call();
+		a = ++b;
+}
+int call()
+{
+		int t, b;
+		b = a++;
+		t = a + c;
+}
+--------------------------------
+With Multiple files:
+--------------------------------
+main.c
+*******
+
+#include<stdio.h>
+
+int glob = 10;
+int val = 20;
+
+main()
+{
+		int x, myval;
+
+		x = add(glob, val);
+		printf("x = %d\n", x);
+		myval = sub(x, glob);
+		printf("myval = %d\n", myval);
+		printf("swap = %d\n", swap(glob, val));
+		printf("val = %d\nglob = %d\n", val, glob);
+}
+
+add.c
+*******
+
+extern int glob;
+extern int val;
+
+int add(int a, int b)
+{
+		int k;
+
+		k = a + b;
+		swapg();
+}
+
+int swapg()
+{
+		int t;
+
+		t = glob;
+		glob = val;
+		val = t;
+}
+
+sub.c
+******
+
+extern int glob;
+extern int val;
+
+int sub(int p, int q)
+{
+		p = glob - q;
+		swap(p, q);
+		val = p++;
+}
+
+int swap(int x, int y)
+{
+		int t;
+		t = x;
+		x = t;
+		y = t;
+}.
+
+------------------------------------------------------------------------
+
+POINTER:
+-------
+
+Comment the statements which are not valid/error. State the reason
+and find compiler error or run time error.
+
+main()
+{
+	int a = 10;
+	int b = 20;
+	int c = 30;
+	int d = 40;
+	int e, *p;
+	int *q, *r;
+	int **t, **u, ***v;
+
+	p = &a;
+	r = p;
+	t = &p;
+	*q = *p;
+	u = &r;
+	v = &u;
+	**v = t;
+	**t = r;
+	*u = r;
+	***v = e + p;
+	**v = **t;
+	*v = t;
+}
+
+main()
+{
+	int a = 10;
+	int b = 20;
+	int* p, q; // is q is pointer or just a int ??
+
+	p = &a;
+	q = &b; // is a valid statement ??
+	q = b; // is a valid statement ??
+
+}
+
+
+main()
+{
+	int a = 10;
+	int b = 20;
+	int c = 30;
+	int d = 40;
+	int *p = &a;
+	int *q = &b;
+	int *r = &c ;
+	int **s = &p;
+	int **t = &q;
+	int ***u = &s;
+	int ***v = &t;
+
+	***u = *q + d;
+	*u = &r;
+	*t = p;
+	**s = *r + *q;
+	*s = &d;
+	*r = *q + **t;
+	**u = *s;
+	*s = q;
+	***u = **t +*r;
+	p = r;
+	***v = *p + **s;
+	**s = *q;
+	**v = *t;
+	**t = **s + *r;
+	*v = s;
+	***v = **t + ***u;
+	*s = q;
+	q = &c;
+	**s = ***u;
+	**t = *p + **s;
+	*s = &b;
+	***v = **s + *p;
+	printf("a = %d\nb = %d\nc = %d\nd = %d\n", a, b, c, d);
+}
+
+
+main()
+{
+	int a = 10;
+	int b = 20;
+	int c = 30;
+	int d = 40;
+	int e = 50;
+	int f = 60;
+	int g = 70;
+	int h = 80;
+	int *p = &a, *q = &b, *r = &c, *s = &d;
+	int **t = &p, **u = &q;
+	int ***v = &t, ***w = &u;
+	int ****x = &v, ****y = &w;
+	int *****z = &x;
+
+	*****z = ****y + ***w + **u + *s + f;
+	****z = s;
+	****y = ***w + **u + *s + f;
+	***z = u;
+	*r = **u + *s + f;
+	**z = v;
+	*s = ***w + ****x + ****y;
+	*z = x;
+	*u = &e;
+	f = *****z + ****y;
+	*p = **u + ***w;
+	***x = &d;
+	*p = **u + ***w;
+	***y = *u;
+	*****z += ****y;
+	**w = *t;
+	*t = &a;
+	e = ***v + ***w;
+	****y = ***w + **u + *s + f;
+	**z = &u;
+	*r = **u + *s + f;
+	*z = &v;
+	**u = e;
+	*p = **u + ***w;
+	***x = q;
+	*p = **u + ***w;
+	*****z += ****y;
+	*w = t;
+	*t = &a;
+	***z = &q;
+	***w = **u + *s;
+	**z = &t;
+	*r = **t + *s + f;
+	**z = w;
+	*u = &e;
+	**u = *****z + ****y;
+	*p = **u + ***w;
+	***x = &g;
+	*p = **u + ***w;
+	***y = &h;
+	*****z += ****y;
+	**w = &a;
+	*t = &b;
+	**t = ***v + ***w;
+	****z = *u;
+	*r = **u + *s + f;
+	*z = &v;
+	**u = e;
+	*p = **u + ***w;
+	***x = q;
+	*p = **u + ***w;
+	*w = t;
+	*t = &a;
+	g = **t + ****x;
+
+	printf("a=%d\nb=%d\nc=%d\nd=%d\ne=%d\nf=%d\ng=%d\nh=%d\n", 
+			a, b, c, d, e, f, g, h);
+
+
+}
+
+
+-----------------------------------------------------------------------------
+main()
+{
+		int i;
+		int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+		int b[10] = {11, 12, 13, 14, 15, 16, 17, 18};
+		int *p;
+		int *q;
+		int *r;
+		int *s;
+
+		p = a;
+		q = a + 7;
+		r = b + 2;
+		s = &b[8];
+		*(a + 5) = *(p + 3);
+		*(a + 2) = *(r - 1);
+		*(b + 3) = *(q - 3);
+		*(b + 6) = *(s + 1);
+		p++;
+		q--;
+		r++;
+		s--;
+		p[0] = q[1];
+		r[-1] = s[-3];
+		a[4] = *(b + 3);
+		a[5] = r[2];
+		a[9] = b[7];
+		b[9] = *(p + 2);
+		*(b + 8) = *(q - 3);
+		*(q - 4) = *(b + 3);
+		p += 2;
+		q -= 2;
+		*p = *(q - 1);
+		q = r;
+		r = p + 1;
+		*(r + 1) = *(q + 1);
+		s[-2] = q[0];
+		*p = *(s + 1);
+		s = q + 1;
+		p = s - 1;
+		q[-2] = p[1];
+		s[1] = *(b + 7);
+		*(a + 6) = *(b + 6);
+		for (i = 0; i < 10; i ++) {
+				printf("%d\n", a[i]);
+		}
+		for (i = 0; i < 10; i ++) {
+				printf("%d\n", b[i]);
+		}
+		printf("*p = %d\n*q = %d\n*r= %d\n*s = %d\n", *p, *q, *r, *s);
+}
+-----------------
+
+main()
+{
+	int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	int *p = a;
+	int *q = a + 9;
+
+	*q = *p++;
+	*p = --*q;
+	*(q - 1) = *(p + 1);
+	*(q - 2) = (*p)++;
+	*(p + 3) = *--q;
+	*(p++) = *q--;
+	*q = ++*p;
+	*p = *(q - 5);
+	*q = *++p;
+	q[-2] = p[0]++;
+	q[-3] = ++p[1];
+	*q = *p++;
+	p[0] = *(q--);
+	*(p - 1) = *(q + 1);
+	*p++;
+	(*q)--;
+	*q--;
+	++*p;
+	++*q;
+	*--p;
+	*q = *p;
+	*p = ++*a;
+	q[0] = (*a)++;
+	q[1] = ++a[9];
+	p[-1] = a[8]--;
+	p[0] = a[6] + *q++;
+	printf("a[0] = %d\na[1] = %d\na[2] = %d\na[3] = %d\na[4] = %d\n"
+		"a[5] = %d\na[6] = %d\na[7] = %d\na[8] = %d\na[9] = %d\n"
+		"*p = %d\n*q = %d\n", a[0], a[1], a[2], a[3], a[4], 
+		a[5], a[6], a[7], a[8], a[9], *p, *q);
+}
+-----------------
+
+main()
+{
+		char a[] = "Ramanan";
+		char b[] = "Samanan";
+		char *p = a;
+		char *q = b;
+		char *r = a + 6;
+		char *s = b + 6;
+		*p = r[0];
+		*q = *--s;
+		*r = *++p;
+		*p = *r--;
+		*s = *++p;
+		*r = *++q;
+		r[-2] = q[2];
+		r[-3] = p[-1];
+		p[0] = *--r;
+		p[1] = (*r)--;
+		s[-2] = *++p;
+		*(b + 2) = *s--;
+		*(a + 1) = s[-1];
+		s = ++r;
+		r = q++;
+		*p = s[0];
+		q[-1] = r[-1];
+		printf("a = %s\nb = %s\n*p = %c\n*q = %c\n*r = %c\n*s = %c\n", 
+			a, b, *p ,*q, *r, *s);
+}
+-----------------
+
+
+
+MACRO:
+1.difference between macro and function?
+2.what is the professional way of writing macro explain suitable example?
+3.write macro for below?
+4.Finding minimum of two number ?
+5.finding maximum of three number?
+6.finding maximum of four number?
+7.find given number divided by two or not?
+8.Find the number even or odd?
+9.find given number positive or negative number?
+10.swapping two number?
+
+-----------------------------------------------------------------------------
