@@ -33,3 +33,10 @@ the value of c in parent = -1751129408   /* the changes made in "child" is not f
 the value of b in parent = -1751129398
 i am the child PID = 3196
 c child = 10
+
+
+merge sort, quik sort, heap sort & their complexities
+BST, BT, AVL tree 
+Hash techinique
+LL, Circular LL, Doubly LL
+Stack,queue
