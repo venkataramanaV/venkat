@@ -240,3 +240,36 @@
 19.	How OS shedule the process time to different process?
 20.	Difference b/w preemtive & non-preemtive
 21.	How do u use git repositary.
+
+++++++++++++++++++++++
+1. Data Type, Storage Class Specifiers, Type Qualifier, & Type Modifier.
+2. Difference between structure & union.
+3. Difference between Extern & Global.
+4. Difference between static variable & static function.
+5. Difference between array & structure.
+6. Difference between Macro & Function.
+7. Self Referential structure & self structure union.
+8. How to find machine is Little Endien or Big Endien.
+9. Dangling Pointer?
+10.Static & Shared libraries
+11.Difference between constant pointer & pointer to constant.
+12.Static & Shared libraries.
+13.Function Pointers
+14.Array to pointer/pointer to array
+15.Implementation of strcpy, strcmp, strlen, strcat
+   
+
+Bitwise operator
+--
+datastructre list loop,delete,
+Tree, BST
+circular ring buffer.
+--inline function. function name
+
+process thread
+signal handling programs
+memory management
+process management
+io management.
+unix apis.
+IPC known.
